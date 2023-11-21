@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "{{url_for('static', filename='css/main.css')}}">
+    <title>Travel Insurence Predictor</title>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="container">
+        <form id="myForm" action="predict" method="post" enctype="multipart/form-data">
+            <label for="Age">Age: </label> 
+                <input type="number" id="Age" name="Age" placeholder="Enter your Age" required>
+    
+            <label for="EmploymentType">Employment Type: </label> 
+            <select name="EmploymentType" id="EmploymentType" required>
+                <option value="">Choose One</option>
+                <option value="GovernmentSector">Government Sector</option>
+                <option value="PrivateSector/SelfEmployed">Private Sector/Self Employed</option>
+            </select> 
+    
+            <label for="GraduateOrNot">Graduate Or Not: </label> 
+            <select name="GraduateOrNot" id="GraduateOrNot" required>
+                <option value="">Choose One</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+    
+            <label for="AnnualIncome">AnnualIncome: </label> 
+            <input type="number" id="Number" name="AnnualIncome" placeholder="Enter your Annual Income" maxlength="10" required>
+    
+            <label for="FamilyMembers">FamilyMembers: </label>
+            <input type="number" id="family" name="FamilyMembers" required>
+            
+            <label for="ChronicDiseases">ChronicDisease: </label>
+            <select name="ChronicDiseases" id="ChronicDiseases" required>
+                <option value="">Choose One</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            
+            <label for="FrequentFlyer">Frequent Flyer: </label>
+            <select name="frequentFlyer" id="FrequentFlyer" required>
+                <option value="">Choose One</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            
+            <label for="EverTravelledAbroad">Ever Travelled Abroad: </label>
+            <select name="EverTravelledAbroad" id="EverTravelledAbroad" required>
+                <option value="">Choose One</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <span><button type="submit" id="submit">Submit</button></span>  
+            {% if prediction_text %}        
+            <label id="label">{{ prediction_text }}</label>
+            {% endif %}
+        </form>      
+    </div>
+    <div class="heading">
+        <h1>Travel Insurence Predictor</h1>
+        <p>Travel insurance is very important, it's like a safety net for unexpected events during your journey, covering things like medical emergencies, lost luggage, or flight cancellations. As global travel increases, so does the need for affordable and thorough coverage. To make the process smarter, we're using a predictive model that analyzes data on past travel insurance purchases, customer info, and travel plans. This model aims to predict if someone will buy travel insurance by looking at factors like age, income, and family size. The goal is to create a tool that accurately forecasts who's likely to get travel insurance based on these details.</p>
+    </div>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>
